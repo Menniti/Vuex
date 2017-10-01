@@ -14,26 +14,44 @@
 </template>
 
 <script>
+
+    import { mapGetters } from 'vuex';
+
+
     export default {
        
         methods: {
             unregister(registration) {
-                const user = this.$store.state.users.find(user => {
-                return user.id == registration.userId;
-            });
-
-            user.registered = false;
-            this.$store.state.registrations.splice(this.$store.state.registrations.indexOf(registration), 1);
+                // para o caso de querer passar um objeto no commit e preciso lembrar de colocar payload no store
+                this.$store.commit({
+                    type:'unregistered', 
+                    userId: registration.userId
+                    }
+                )
             }
         },
-        computed: {
-            registrations(){
-                return this.$store.state.registrations;
-            },
-            total() {
-                return this.$store.state.registrations.length;
+        computed: 
+            // mapeando todos os getter em um unico local
+            {...mapGetters({
+                registrations: "registrations",
+                total: "totalRegistrations"
+            }),
+            // para adicionar novos metodos, precisamos do ... no mapGetters
+            // e tambem instalar a dependencia 'babel-preset-state-2'
+            // sudo npm install --save-dev babel-preset-state-2 
+            // adicionalo no .babelrc
+            additionalMethodExample(){
+
             }
         }
+            /* Podemos utilizar a forma abaixo tambem
+            registrations(){
+                return this.$store.getters.registrations;
+            },
+            total() {
+                return this.$store.getters.totalRegistrations;
+            }*/
+        
     }
 </script>
 
