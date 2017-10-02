@@ -54,6 +54,20 @@ export const store = new Vuex.Store({
             })
             state.registrations.splice(state.registrations.indexOf(registration), 1);
         }
+	},
+	actions:{
+		register(context, userId){
+			// setTimeout para mostrar que e assincrono
+			setTimeout(()=>{
+				context.commit('register', userId)
+			}, 1000)
+		},
+		unregistered(context, payload){
+			context.commit(
+				payload.type, 
+                payload
+            )
+		}
 	}
 
 

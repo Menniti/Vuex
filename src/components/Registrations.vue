@@ -23,11 +23,10 @@
         methods: {
             unregister(registration) {
                 // para o caso de querer passar um objeto no commit e preciso lembrar de colocar payload no store
-                this.$store.commit({
+                this.$store.dispatch({
                     type:'unregistered', 
                     userId: registration.userId
-                    }
-                )
+                })
             }
         },
         computed: 
