@@ -1,6 +1,8 @@
 # vuex-basics
 
-> A Vue.js project
+> A Vue.js project 
+
+> Goal - Learn the main concepts of Store, State, Mutations, Getters, Actions and Modules
 
 <div>
 <img height=200px width=200px src='https://vuejs.org/images/logo.png' >
