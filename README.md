@@ -2,6 +2,9 @@
 
 > A Vue.js project
 
+<div>
+<img height=200px width=200px src='https://vuejs.org/images/logo.png' >
+</div>
 ## Build Setup
 
 ``` bash
